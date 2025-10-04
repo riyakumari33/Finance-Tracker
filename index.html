@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Finance Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="brand">
+      <h1>CashLens - Your Personal Finance Tracker</h1>
+    </div>
+    <p class="tagline">See your money clearly</p>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <h2>Add Transaction</h2>
+      <form id="transaction-form">
+        <input type="text" id="amount" placeholder="Amount" required>
+        <select id="type" required>
+          <option value="Income">Income</option>
+          <option value="Expense">Expense</option>
+        </select>
+        <input type="text" id="category" placeholder="Category (Food, Travel...)" required>
+        <input type="date" id="date" required>
+        <button type="submit">Add</button>
+      </form>
+    </section>
+
+    <section class="summary">
+      <div class="card" id="income-card">Income: ₹<span id="total-income">0</span></div>
+      <div class="card" id="expense-card">Expenses: ₹<span id="total-expense">0</span></div>
+      <div class="card" id="balance-card">Balance: ₹<span id="balance">0</span></div>
+    </section>
+
+    <section class="charts">
+      <canvas id="pieChart"></canvas>
+    </section>
+
+    <section class="transactions">
+      <h2>Transactions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="transaction-table"></tbody>
+      </table>
+      <button id="export-btn">Export CSV</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
